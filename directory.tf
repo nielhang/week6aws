@@ -7,7 +7,7 @@ resource "aws_directory_service_directory" "adsd" {
 
   vpc_settings {
     vpc_id     = aws_vpc.main.id
-    subnet_ids = [aws_subnet.ds1.id,aws_subnet.ds2.id]
+    subnet_ids = [aws_subnet.ds1.id, aws_subnet.ds2.id]
   }
 
   tags = {
@@ -29,7 +29,7 @@ output "caller_arn" {
 
 # Define IAM Group Membership
 resource "aws_iam_user_group_membership" "owner" {
-  user = split("/",split(":",data.aws_caller_identity.current.arn)[5])[1]
+  user = split("/", split(":", data.aws_caller_identity.current.arn)[5])[1]
 
   groups = [
     aws_iam_group.grp.name,
