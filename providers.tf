@@ -7,7 +7,7 @@ terraform {
     }
   }
 
-  required_version = ">= 1.3.9"
+  #required_version = ">= 1.3.9"
 
   backend "s3" {
     bucket = "nielangweek6"
