@@ -24,7 +24,7 @@ variable "common-name-prefix" {
 variable "container-registry-name" {
   description = "Value of the Name tag for the Container Registry Name"
   type        = string
-  default     = "nielangweek6dockeracr"
+  default     = "nielangweek6dockerecr"
 }
 
 #Container Registry Name
@@ -76,6 +76,13 @@ variable "resource-group-node-name" {
   description = "Value of the Name tag for the Resource Group Name for the Node"
   type        = string
   default     = "nielang-week6docker-node-rg"
+}
+
+#S3 Bucket Name
+variable "s3-bucket-name" {
+  description = "Value of the Bucket Name for the S3 Bucket"
+  type        = string
+  default     = "nielangweek6"
 }
 
 #SSH Public Key

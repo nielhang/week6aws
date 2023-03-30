@@ -7,10 +7,6 @@ resource "aws_iam_group" "grp" {
 # Retrieve Existing Users
 data "aws_caller_identity" "current" {}
 
-output "caller_arn" {
-  value = data.aws_caller_identity.current.arn
-}
-
 # Define IAM Group Membership
 resource "aws_iam_user_group_membership" "owner" {
   user = split("/", split(":", data.aws_caller_identity.current.arn)[5])[1]
