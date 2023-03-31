@@ -20,18 +20,11 @@ variable "common-name-prefix" {
   default     = "nielang.devopsthehardway"
 }
 
-#Container Registry Name
-variable "container-registry-name" {
-  description = "Value of the Name tag for the Container Registry Name"
+#EKS CLuster Name
+variable "eks_cluster_name" {
+  description = "Value of the Name tag for the EKS Cluster Name"
   type        = string
-  default     = "nielangweek6dockerecr"
-}
-
-#Container Registry Name
-variable "container-vm-size" {
-  description = "Value of the VM Size"
-  type        = string
-  default     = "Standard_D2_v2"
+  default     = "nielangweek6dockereks"
 }
 
 #Group Policy
@@ -154,5 +147,38 @@ variable "vnet-subnet-web2" {
   description = "Value of the Name tag for the Virtual Network Web2 Subnet Name"
   type        = string
   default     = "nielang-vnet-web2"
+}
+
+#VPC Availability Zones
+variable "vpc_availability_zones" {
+  description = "lists of values of the Availability Zones"
+  type        = list(any)
+  default     = ["eu-west-1a", "eu-west-1b"]
+}
+
+#VPC CIDR Block for main VPC
+variable "vpc_cidr_block" {
+  type        = string
+  default     = "10.0.0.0/16"
+  description = "CIDR block range for vpc"
+}
+
+#VPC Any CIDR Blocks
+variable "vpc_cidr_block_any" {
+  description = "Value of the CIDR Block of the public for the the cluster VPC"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "vpc_cidr_block_public_subnets" {
+  type        = list(string)
+  default     = ["10.0.0.0/24", "10.0.1.0/24"]
+  description = "CIDR block range for the private subnet"
+}
+
+variable "vpc_cidr_block_private_subnets" {
+  type        = list(string)
+  default     = ["10.0.2.0/24", "10.0.3.0/24"]
+  description = "CIDR block range for the public subnet"
 }
 
